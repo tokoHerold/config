@@ -1,0 +1,21 @@
+local set = vim.keymap.set
+
+-- Telescope
+local builtin = require("telescope.builtin")
+local wk = require("which-key")
+wk.add({{ "<leader>f", desc="Find" }})
+set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
+set('n', '<leader>p', builtin.find_files, { desc = 'Find files' })
+set('n', '<leader>fF', "<cmd>Telescope find_files cwd=~<cr>", { desc = 'Find files (home)' })
+set('n', '<leader>fc', "<cmd>Telescope find_files cwd=~/.config/nvim<cr>", { desc = 'Config Files' })
+set('n', '<leader>fg', builtin.live_grep, { desc = 'Live Grep' })
+set('n', '<leader>g', builtin.current_buffer_fuzzy_find, { desc = 'Grep' })
+set('n', '<leader>fb', builtin.buffers, { desc = 'Buffers' })
+set({'n', 'i' }, '<C-f>', builtin.current_buffer_fuzzy_find, { desc = 'Buffers' })
+set('n', '<leader>fr', builtin.buffers, { desc = 'Registers' })
+set('n', '<leader>fh', builtin.help_tags, { desc = 'Help tags' })
+set('n', "<leader>fG", "<cmd>Telescope git_files<cr>", { desc = "Find Files (git-files)" })
+set("n", "<leader>w", ":Telescope file_browser path=%:p:h<cr><esc>", { desc = "File browser" })
+
+-- Window Picker
+set('n', "<leader><leader>", require('plugins/window_picker').focus_selected_window, {})

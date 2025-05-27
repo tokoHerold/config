@@ -1,14 +1,13 @@
 local map = vim.keymap.set
 
 -- Better movement
-map({"n", "n", "v"}, "j", "gj")
-map({"n", "n", "v"}, "h", "gh")
-map({"n", "n", "v"}, "k", "gk")
-map({"n", "n", "v"}, "l", "gl")
+map("n", "j", "gj")
+map("n", "k", "gk")
 
 		-- Better escaping
-map({ "i", "v" }, "jk", "<esc>")
-map({ "i", "v" }, "kj", "<esc>")
+map({ "i" }, "jk", "<esc>")
+map({ "i" }, "kj", "<esc>")
+map({ "i" }, "jj", "<esc>")
 map({ "i", "v", "n" }, "<esc>", "<esc>:noh<CR>")
 
 -- -- Move Lines

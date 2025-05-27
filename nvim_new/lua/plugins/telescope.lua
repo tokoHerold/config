@@ -44,22 +44,3 @@ telescope.setup({
 telescope.load_extension("ui-select")
 
 
-
--- Key binds
-local set = vim.keymap.set
-local wk = require("which-key")
-wk.add({
-  { "<leader>f", desc="Find" },
-})
---set('n'), <leader>f, {}, {desc = "Telescope"})
-set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
-set('n', '<leader>p', builtin.find_files, { desc = 'Find files' })
-set('n', '<leader>fF', "<cmd>Telescope find_files cwd=~<cr>", { desc = 'Find files (home)' })
-set('n', '<leader>fc', "<cmd>Telescope find_files cwd=~/.config/nvim<cr>", { desc = 'Config Files' })
-set('n', '<leader>fg', builtin.live_grep, { desc = 'Live Grep' })
-set('n', '<leader>g', builtin.current_buffer_fuzzy_find, { desc = 'Grep' })
-set('n', '<leader>fb', builtin.buffers, { desc = 'Buffers' })
-set('n', '<leader>fh', builtin.help_tags, { desc = 'Help tags' })
-set('n', "<leader>fG", "<cmd>Telescope git_files<cr>", { desc = "Find Files (git-files)" })
-map("n", "<leader>w", ":Telescope file_browser path=%:p:h<CR>", { desc = "File browser" })
-

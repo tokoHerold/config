@@ -33,7 +33,7 @@ local plugins = {
   -- { 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } }, -- Better status line at bottom of screen
   -- {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'}, -- Tab bar of open buffers at top
   -- {'brenoprata10/nvim-highlight-colors'}, -- render colors in document
-  -- {'s1n7ax/nvim-window-picker', name = 'window-picker' },
+  {'s1n7ax/nvim-window-picker', name = 'window-picker' },
   --
   -- -- Coding
   -- { 'nvim-treesitter/nvim-treesitter'}, -- Highlight, edit, and navigate code
