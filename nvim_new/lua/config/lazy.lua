@@ -28,6 +28,7 @@ local plugins = {
   { "nvim-telescope/telescope.nvim", dependencies = { "nvim-lua/plenary.nvim" } }, -- UI to select things (files, search results, open buffers...)
   { 'nvim-telescope/telescope-ui-select.nvim' }, -- UI for e.g. code actions
   { "nvim-telescope/telescope-file-browser.nvim", dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" } }, -- File explorer
+  { "kdheepak/lazygit.nvim", cmd = {"LazyGit"}, dependencies = { "nvim-lua/plenary.nvim" } },
   -- { 'akinsho/toggleterm.nvim' },
   -- { "nvim-neo-tree/neo-tree.nvim", dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim", "3rd/image.nvim" } }, -- File explorer
   -- { 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } }, -- Better status line at bottom of screen
