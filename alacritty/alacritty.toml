@@ -4,7 +4,7 @@ shell = "tmux"#"fish -c tmux attach || tmuxfish -c tmux attach || tmux"
 
   [env]
 term = "xterm-256color"
-winit_x11_scale_factor = "1"
+# winit_x11_scale_factor = "1"
 
 [window]
 dynamic_padding = true
