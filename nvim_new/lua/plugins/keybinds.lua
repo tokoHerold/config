@@ -18,4 +18,4 @@ set('n', "<leader>fG", "<cmd>Telescope git_files<cr>", { desc = "Find Files (git
 set("n", "<leader>w", ":Telescope file_browser path=%:p:h<cr><esc>", { desc = "File browser" })
 
 -- Window Picker
-set('n', "<leader><leader>", require('plugins/window_picker').focus_selected_window, {})
+set('n', "<leader><leader>", require('plugins/window_picker').focus_selected_window, { desc = "Select Window" })

@@ -8,17 +8,22 @@ local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
 
 -- Search in hidden/dot files.
 table.insert(vimgrep_arguments, "--hidden")
--- Don't want to search in the `.git` directory.
+-- Don't search in `.git` directory.
 table.insert(vimgrep_arguments, "--glob")
 table.insert(vimgrep_arguments, "!**/.git/*")
-
-
 
 -- Setup
 telescope.setup({
   defaults = {
 		-- `hidden = true` is not supported in text grep commands.
 		vimgrep_arguments = vimgrep_arguments,
+        get_selection_window = function()
+            return require('window-picker').pick_window({
+                -- You can customize the behavior here
+                include_current_win = true, -- Include the current window in the selection
+                -- Other options can be added as needed
+            })
+        end,
 	},
 	pickers = {
     -- Configure find_files file picker
@@ -43,4 +48,5 @@ telescope.setup({
 
 telescope.load_extension("ui-select")
 
+-- telescope.defaults.get_selection_window = require("window-picker").pick_window
 
