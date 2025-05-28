@@ -18,7 +18,17 @@ set('n', "<leader>fG", "<cmd>Telescope git_files<cr>", { desc = "Find Files (git
 set("n", "<leader>w", ":Telescope file_browser path=%:p:h<cr><esc>", { desc = "File browser" })
 
 -- Window Picker
+local wp = require("window-picker")
 set('n', "<leader><leader>", require('plugins/window_picker').focus_selected_window, { desc = "Select Window" })
+-- Function to swap the current window with a specified window
+local function swap_current_window_with()
+	local win = wp.pick_window({ filter_rules = { include_current_win = false } })
+	local buf1 = vim.api.nvim_get_current_buf()
+	local buf2 = vim.api.nvim_win_get_buf(win)
+	vim.api.nvim_win_set_buf(vim.api.nvim_get_current_win(), buf2)
+	vim.api.nvim_win_set_buf(win, buf1)
+end
+set('n', "<leader>mw", swap_current_window_with)
 
 -- Lazygit
 set('n',  "<leader>g", "<cmd>LazyGit<cr>", { desc = "LazyGit" })

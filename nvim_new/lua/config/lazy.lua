@@ -38,6 +38,7 @@ local plugins = {
   --
   -- -- Coding
   -- { 'nvim-treesitter/nvim-treesitter'}, -- Highlight, edit, and navigate code
+  { 'nvim-treesitter/nvim-treesitter', lazy = false, branch = 'main', build = ':TSUpdate' },
   -- { 'nvim-treesitter/nvim-treesitter-textobjects' }, -- Better movement, peaking
   -- { "williamboman/mason.nvim" }, -- LSP
   -- { "williamboman/mason-lspconfig.nvim", dependencies = {"mason.nvim"} }, -- LSP

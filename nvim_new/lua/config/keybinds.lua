@@ -4,7 +4,7 @@ local map = vim.keymap.set
 map("n", "j", "gj")
 map("n", "k", "gk")
 
-		-- Better escaping
+-- Better escaping
 map({ "i" }, "jk", "<esc>")
 map({ "i" }, "kj", "<esc>")
 map({ "i" }, "jj", "<esc>")
@@ -21,11 +21,18 @@ map("n", "<A-up>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Mo
 map("i", "<A-down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
 map("i", "<A-up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 
--- Neat shortcuts
+-- Neat shortcut
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 -- map("n", "<Leader>a", "ggVG", { desc = "Select all" })
+-- map('i', '<C-BS>', '<esc>vbda', {  silent = true })
 map("n", "<C-a>", "ggVG", { desc = "Select all" })
 map("v", "<C-c>", "\"+y", { desc = "Copy"} )
 map("i", "<C-v>", "<esc>:set paste<cr>\"+p:set nopaste<cr>i", { desc = "Paste"} )
 map("n", "aa", "A")
 
+-- Buffers
+map("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format" })
+-- map("n", "<C-A-Left>", "<C-w><")
+-- map("n", "<C-A-Right>", "<C-w>>")
+-- map("n", "<C-A-Up>", "<C-w>+")
+-- map("n", "<C-A-Down>", "<C-w>-")

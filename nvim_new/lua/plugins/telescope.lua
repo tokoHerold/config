@@ -14,36 +14,36 @@ table.insert(vimgrep_arguments, "!**/.git/*")
 
 -- Setup
 telescope.setup({
-  defaults = {
+	defaults = {
 		-- `hidden = true` is not supported in text grep commands.
 		vimgrep_arguments = vimgrep_arguments,
-        get_selection_window = function()
-            return require('window-picker').pick_window({
-                -- You can customize the behavior here
-                include_current_win = true, -- Include the current window in the selection
-                -- Other options can be added as needed
-            })
-        end,
+		get_selection_window = function()
+			return require('window-picker').pick_window({
+				-- You can customize the behavior here
+				include_current_win = true, -- Include the current window in the selection
+				-- Other options can be added as needed
+			})
+		end,
 	},
 	pickers = {
-    -- Configure find_files file picker
-    find_files = {
-      no_ignore = true,
+		-- Configure find_files file picker
+		find_files = {
+			no_ignore = true,
 			hidden = true, --will still show the inside of `.git/` as it's not `.gitignore`d.
 			find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
-      
-			  mappings = {
-			   i = { -- insert mode
-				["qq"] = actions.close -- close in insert mode
-			   },
-			 },
+
+			mappings = {
+				i = { -- insert mode
+					["qq"] = actions.close -- close in insert mode
+				},
+			},
 		},
 	},
-  extensions = {
-    ["ui-select"] = {
-      require("telescope.themes").get_dropdown(),
-    },
-  },
+	extensions = {
+		["ui-select"] = {
+			require("telescope.themes").get_dropdown(),
+		},
+	},
 })
 
 telescope.load_extension("ui-select")
