@@ -32,3 +32,9 @@ set('n', "<leader>mw", swap_current_window_with)
 
 -- Lazygit
 set('n',  "<leader>g", "<cmd>LazyGit<cr>", { desc = "LazyGit" })
+
+-- Treesitter
+wk.add({"<leader>t", desc = "Treesitter"})
+set('n', "<leader>ti", ":checkhealth nvim-treesitter<cr>)", {desc = "Info"}) 
+set('n', "<leader>tt", ":InspectTree<cr>)", {desc = "Inspect Tree"}) 
+
