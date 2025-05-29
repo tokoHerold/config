@@ -19,9 +19,7 @@ telescope.setup({
 		vimgrep_arguments = vimgrep_arguments,
 		get_selection_window = function()
 			return require('window-picker').pick_window({
-				-- You can customize the behavior here
 				include_current_win = true, -- Include the current window in the selection
-				-- Other options can be added as needed
 			})
 		end,
 	},
@@ -46,7 +44,13 @@ telescope.setup({
 	},
 })
 
+        -- Extension config -- 
+ -- overrides vim.ui.select. See :h vim.ui.select
 telescope.load_extension("ui-select")
+
+ -- Show VCS of all open buffers
+telescope.load_extension("lazygit")
+vim.api.nvim_create_autocmd('BufEnter', { callback = require("lazygit.utils").project_root_dir })
 
 -- telescope.defaults.get_selection_window = require("window-picker").pick_window
 
