@@ -34,6 +34,7 @@ local plugins = {
 		cmd = {"LazyGit", "LazyGitConfig", "LazyGitCurrentFile", "LazyGitFilter", "LazyGitFilterCurrentFile"},
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" }
 	},
+	{ 'nvim-focus/focus.nvim', version = '*' }, -- nice way of splitting windows
 	-- { 'akinsho/toggleterm.nvim' },
 	-- { "nvim-neo-tree/neo-tree.nvim", dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim", "3rd/image.nvim" } }, -- File explorer
 	-- { 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } }, -- Better status line at bottom of screen

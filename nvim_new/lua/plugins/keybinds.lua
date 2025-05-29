@@ -60,3 +60,11 @@ require("nvim-treesitter.configs").setup({ incremental_selection = { enable = tr
 
 
 
+-- Focus
+local focus = require("focus")
+set('n', "<C-l>", focus.split_nicely, { desc = "Split nicely" })
+set('n', "<leader><left>", function() focus.split_command('h') end, { desc = "Split left" })
+set('n', "<leader><right>", function() focus.split_command('l') end, { desc = "Split right" })
+set('n', "<leader><up>", function() focus.split_command('k') end, { desc = "Split up" })
+set('n', "<leader><down>", function() focus.split_command('j') end, { desc = "Split down" })
+
