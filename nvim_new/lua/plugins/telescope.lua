@@ -22,6 +22,11 @@ telescope.setup({
 				include_current_win = true, -- Include the current window in the selection
 			})
 		end,
+		mappings = {
+			i = { -- insert mode
+				["qq"] = actions.close -- close in insert mode
+			},
+		},
 	},
 	pickers = {
 		-- Configure find_files file picker
@@ -30,16 +35,12 @@ telescope.setup({
 			hidden = true, --will still show the inside of `.git/` as it's not `.gitignore`d.
 			find_command = { "rg", "--files", "--hidden", "--glob", "!**/.git/*" },
 
-			mappings = {
-				i = { -- insert mode
-					["qq"] = actions.close -- close in insert mode
-				},
-			},
 		},
+		command_history = { theme = "ivy" },
 	},
 	extensions = {
 		["ui-select"] = {
-			require("telescope.themes").get_dropdown(),
+			require("telescope.themes").get_cursor(),
 		},
 	},
 })
