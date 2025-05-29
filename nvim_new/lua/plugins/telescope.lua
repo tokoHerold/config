@@ -55,3 +55,5 @@ vim.api.nvim_create_autocmd('BufEnter', { callback = require("lazygit.utils").pr
 
 -- telescope.defaults.get_selection_window = require("window-picker").pick_window
 
+-- Override vim.ui.input with telescope:
+

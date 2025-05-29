@@ -4,7 +4,7 @@ local wk = require("which-key")
 -- Telescope
 local builtin = require("telescope.builtin")
 -- Normal Mappings
-wk.add({{ "<leader>f", desc="Find" }})
+wk.add({ { "<leader>f", desc = "Find" } })
 set('n', '<leader>ff', builtin.find_files, { desc = 'Files (CWD)' })
 set('n', '<leader>fF', "<cmd>Telescope find_files cwd=~<cr>", { desc = 'Files (Home)' })
 set('n', '<leader>fc', "<cmd>Telescope find_files cwd=~/.config/nvim<cr>", { desc = 'Config Files' })
@@ -12,18 +12,20 @@ set('n', '<leader>fg', builtin.live_grep, { desc = 'Live Grep' })
 set('n', '<leader>fb', builtin.buffers, { desc = 'Buffers' })
 set('n', '<leader>fo', builtin.oldfiles, { desc = 'Recently opened' })
 set('n', '<leader>fx', builtin.commands, { desc = 'Commands' })
-set('n', '<leader>fm', builtin.marks, { desc = 'Marks' })
 set('n', '<leader>fr', builtin.registers, { desc = 'Registers' })
 set('n', '<leader>fh', builtin.help_tags, { desc = 'Help tags' })
 set('n', "<leader>fG", "<cmd>Telescope git_files<cr>", { desc = "Git files)" })
-set("n", "<leader>fv", require("telescope").extensions.lazygit.lazygit, { desc = "Version Control" } )
+set("n", "<leader>fv", require("telescope").extensions.lazygit.lazygit, { desc = "Version Control" })
 set('n', '<leader>ft', builtin.treesitter, { desc = 'Treesitter' })
 -- Code Mappings
-
+set('n', '<leader>fd', builtin.lsp_definitions, { desc = 'Definitions' })
+set('n', '<leader>fe', function() builtin.diagnostics({ bufnr = 0 }) end, { desc = 'Errors/Warnings' })
+set('n', '<leader>fi', builtin.lsp_implementations, { desc = 'Implementations' })
+set('n', '<leader>fy', builtin.lsp_type_definitions, { desc = 'Type Definitions' })
 -- Special Mappings
 set('n', '<leader>p', builtin.find_files, { desc = 'Find files' })
 set('c', '<C-r>', builtin.command_history, { desc = 'Command history' })
-set({'n', 'i' }, '<C-f>', builtin.current_buffer_fuzzy_find, { desc = 'Buffers' })
+set({ 'n', 'i' }, '<C-f>', builtin.current_buffer_fuzzy_find, { desc = 'Buffers' })
 set("n", "<leader>w", ":Telescope file_browser path=%:p:h<cr><esc>", { desc = "File browser" })
 
 -- Window Picker
@@ -42,23 +44,39 @@ set('n', "<leader>mw", swap_current_window_with)
 
 -- Lazygit
 wk.add({ "<leader>g", desc = "Git" })
-set('n',  "<leader>gg", "<cmd>LazyGit<cr>", { desc = "LazyGit (CWD as project root)" })
-set('n',  "<leader>gf", "<cmd>LazyGit<cr>", { desc = "LazyGit (Current file as project root)" })
-set('n',  "<leader>gc", "<cmd>LazyGitFilter<cr>", { desc = "Commits" })
+set('n', "<leader>gg", "<cmd>LazyGit<cr>", { desc = "LazyGit (CWD as project root)" })
+set('n', "<leader>gf", "<cmd>LazyGit<cr>", { desc = "LazyGit (Current file as project root)" })
+set('n', "<leader>gc", "<cmd>LazyGitFilter<cr>", { desc = "Commits" })
 
 -- Treesitter
-wk.add({"<leader>t", desc = "Treesitter"})
-set('n', "<leader>ti", ":checkhealth nvim-treesitter<cr>)", {desc = "Info"}) 
-set('n', "<leader>tt", ":InspectTree<cr>)", {desc = "Inspect Tree"})
-wk.add({"gr", desc = "Incremental Selection"})
-require("nvim-treesitter.configs").setup({ incremental_selection = { enable = true, keymaps = {
-	init_selection = "gnn", -- set to `false` to disable one of the mappings
-	node_incremental = "grn",
-	scope_incremental = "grc",
-	node_decremental = "grm",
-} } })
+wk.add({ "<leader>t", desc = "Treesitter" })
+set('n', "<leader>ti", ":checkhealth nvim-treesitter<cr>)", { desc = "Info" })
+set('n', "<leader>tt", ":InspectTree<cr>)", { desc = "Inspect Tree" })
+wk.add({ "gr", desc = "Incremental Selection" })
+require("nvim-treesitter.configs").setup({
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "gnn", -- set to `false` to disable one of the mappings
+			node_incremental = "grn",
+			scope_incremental = "grc",
+			node_decremental = "grm",
+		}
+	}
+})
 
-
+-- LSP
+local lspconf = require("plugins/lsp")
+wk.add({ "<leader>c", desc = "Code" })
+set('n', "<leader>cm", "<cmd>Mason<cr>")
+set('n', "<leader>ci", "<cmd>LspInfo<cr>")
+set({ 'n', 'v' }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Actions" })
+set('n', "<leader>cf", vim.lsp.buf.format, { desc = "Format" })
+set({ 'n', 'v' }, "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
+set({ 'n', 'v' }, "gi", vim.lsp.buf.declaration, { desc = "Goto Implementation" })
+set({ 'n', 'v' }, "<leader>ce", vim.diagnostic.open_float, { desc = "Show Error/Warning" })
+set({ 'n', 'v' }, "<F2>", vim.lsp.buf.rename)
+set('n', "<leader>ct", lspconf.toggle, {desc = "Toggle Diagnostic Style"})
 
 -- Focus
 local focus = require("focus")
@@ -67,4 +85,3 @@ set('n', "<leader><left>", function() focus.split_command('h') end, { desc = "Sp
 set('n', "<leader><right>", function() focus.split_command('l') end, { desc = "Split right" })
 set('n', "<leader><up>", function() focus.split_command('k') end, { desc = "Split up" })
 set('n', "<leader><down>", function() focus.split_command('j') end, { desc = "Split down" })
-

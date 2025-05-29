@@ -41,15 +41,15 @@ local plugins = {
 	-- {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'}, -- Tab bar of open buffers at top
 	-- {'brenoprata10/nvim-highlight-colors'}, -- render colors in document
 	{'s1n7ax/nvim-window-picker', name = 'window-picker' },
+	{"https://github.com/MunifTanjim/nui.nvim"},
 	--
 	-- -- Coding
 	-- { 'nvim-treesitter/nvim-treesitter'}, -- Highlight, edit, and navigate code
 	{"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"},
-	-- { 'nvim-treesitter/nvim-treesitter', lazy = false, branch = 'main', build = ':TSUpdate' },
 	-- { 'nvim-treesitter/nvim-treesitter-textobjects' }, -- Better movement, peaking
-	-- { "williamboman/mason.nvim" }, -- LSP
-	-- { "williamboman/mason-lspconfig.nvim", dependencies = {"mason.nvim"} }, -- LSP
-	-- { "neovim/nvim-lspconfig" }, -- LSP
+	{ "mason-org/mason.nvim", opts = {} }, -- LSP Package manager
+	{ "mason-org/mason-lspconfig.nvim", opts = {}, dependencies = {"mason-org/mason.nvim", "neovim/nvim-lspconfig"} }, -- LSP
+	{ "neovim/nvim-lspconfig" }, -- LSP
 	-- { "mrcjkb/rustaceanvim", version = '^5' }, -- automatically set up lspconfig for rust-analyzer
 	--
 	-- -- Autocompletion
