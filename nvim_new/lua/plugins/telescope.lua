@@ -44,11 +44,11 @@ telescope.setup({
 	},
 })
 
-        -- Extension config -- 
- -- overrides vim.ui.select. See :h vim.ui.select
+-- Extension config -- 
+-- overrides vim.ui.select. See :h vim.ui.select
 telescope.load_extension("ui-select")
 
- -- Show VCS of all open buffers
+-- Show VCS of all open buffers
 telescope.load_extension("lazygit")
 vim.api.nvim_create_autocmd('BufEnter', { callback = require("lazygit.utils").project_root_dir })
 

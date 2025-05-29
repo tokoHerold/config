@@ -1,5 +1,16 @@
 -- Enable treesitter highlighting
-local ts = require("nvim-treesitter")
+require("nvim-treesitter.configs").setup({
+	auto_install = true,
+	highlight = { 
+		enable = true,  -- use treesitter syntax highlighting
+		additional_vim_regex_highlighting = false,
+	},
+	indent = { enable = true }, -- use treesitter indentation when pressing '='
+})
+
+
+ -- Config for new main branch - currently does not work well with other plugins
+--[[ local ts = require("nvim-treesitter")
 local config = require("nvim-treesitter.config")
 local async = require('plenary.async')
 
@@ -13,26 +24,4 @@ vim.api.nvim_create_autocmd('FileType', {
 		vim.notify("Treesitter: Loaded " .. ft .. " parser!", vim.log.levels.INFO)
 	end,
 })
-
--- Enable indentation
-
--- local ts_parsers = require("nvim-treesitter.parsers")
-
--- vim.api.nvim_create_autocmd("BufEnter", {
-	--   pattern = { "*" },
-	--   callback = function()
-		--     local ft = vim.bo.filetype
-		-- pattern = { '<filetype>' },
-		--     if not ft then
-		--       return
-		--     end
-		--     local parser = ts_parsers.filetype_to_parsername[ft]
-		--     if not parser then
-		--       return
-		--     end
-		--     local is_installed = ts_parsers.has_parser(ts_parsers.ft_to_lang(ft))
-		--     if not is_installed then
-		--       vim.cmd("TSInstall " .. parser)
-		--     end
-		--   end,
-		-- }) fh
+--]]

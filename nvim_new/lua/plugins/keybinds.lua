@@ -15,7 +15,8 @@ set('n', '<leader>fr', builtin.registers, { desc = 'Registers' })
 set('n', '<leader>fh', builtin.help_tags, { desc = 'Help tags' })
 set('n', "<leader>fG", "<cmd>Telescope git_files<cr>", { desc = "Find Files (git-files)" })
 set("n", "<leader>w", ":Telescope file_browser path=%:p:h<cr><esc>", { desc = "File browser" })
-set("n", "<leader>fv", require("telescope").extensions.lazygit.lazygit, { desc = "Version Control" }n)
+set("n", "<leader>fv", require("telescope").extensions.lazygit.lazygit, { desc = "Version Control" } )
+set('n', '<leader>ft', builtin.treesitter, { desc = 'Treesitter' })
 
 -- Window Picker
 local wp = require("window-picker")
@@ -27,6 +28,7 @@ local function swap_current_window_with()
 	local buf2 = vim.api.nvim_win_get_buf(win)
 	vim.api.nvim_win_set_buf(vim.api.nvim_get_current_win(), buf2)
 	vim.api.nvim_win_set_buf(win, buf1)
+	vim.api.nvim_set_current_win(win)
 end
 set('n', "<leader>mw", swap_current_window_with)
 
@@ -39,5 +41,14 @@ set('n',  "<leader>gc", "<cmd>LazyGitFilter<cr>", { desc = "Commits" })
 -- Treesitter
 wk.add({"<leader>t", desc = "Treesitter"})
 set('n', "<leader>ti", ":checkhealth nvim-treesitter<cr>)", {desc = "Info"}) 
-set('n', "<leader>tt", ":InspectTree<cr>)", {desc = "Inspect Tree"}) 
+set('n', "<leader>tt", ":InspectTree<cr>)", {desc = "Inspect Tree"})
+wk.add({"gr", desc = "Incremental Selection"})
+require("nvim-treesitter.configs").setup({ incremental_selection = { enable = true, keymaps = {
+	init_selection = "gnn", -- set to `false` to disable one of the mappings
+	node_incremental = "grn",
+	scope_incremental = "grc",
+	node_decremental = "grm",
+} } })
+
+
 
