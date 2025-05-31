@@ -6,7 +6,7 @@ local options = {
 		constants = 'underdotted',
 		functions = '',
 		keywords = 'bold',
-		numbers = '',
+		numbers = 'underline',
 		operators = 'bold',
 		preprocs = 'bold',
 		strings = '',
@@ -24,28 +24,55 @@ local groups = {
 	}
 }
 
-local specs = {
+-- local specs = {
+-- 	all = {
+-- 		syntax = {
+-- 			bracket = vim.g.terminal_color_7,
+-- 			builtin0 = vim.g.terminal_color_14, -- builtin variables
+-- 			builtin1 = vim.g.terminal_color_13, -- builtin types
+-- 			-- builtin2 = 'green', -- todo
+-- 			comment = '#33AA66',
+-- 			conditional = 'orange', -- if/for
+-- 			const = vim.g.terminal_color_14, -- variable names of const type
+-- 			-- dep = 'green', -- todo
+-- 			field = vim.g.terminal_color_4, -- member variables
+-- 			func = vim.g.terminal_color_6, -- functions
+-- 			ident = vim.g.terminal_color_13, -- Identifiers (e.g. python constructors)
+-- 			keyword = 'orange',     -- try, with, except, ...
+-- 			number = vim.g.terminal_color_2,
+-- 			operator = vim.g.terminal_color_7,
+-- 			preproc = vim.g.terminal_color_5, -- #include, import, ...
+-- 			regex = vim.g.terminal_color_9,
+-- 			-- statement = 'green',
+-- 			string = vim.g.terminal_color_10,
+-- 			type = vim.g.terminal_color_11,
+-- 			variable = '#AAC1FD',
+-- 		}
+-- 	}
+-- }
+
+local specs_high_contrast = {
 	all = {
 		syntax = {
-			bracket = vim.g.terminal_color_7,
+			bracket = '#FECEFE',
 			builtin0 = vim.g.terminal_color_14, -- builtin variables
-			builtin1 = vim.g.terminal_color_13, -- builtin types
+			builtin1 =  '#FF88CF', -- builtin types
 			-- builtin2 = 'green', -- todo
-			comment = '#546C3B',
+			comment = '#33AA66',
 			conditional = 'orange', -- if/for
-			const = vim.g.terminal_color_14, -- variable names of const type
+			const = '#A1E6E6', -- variable names of const type
 			-- dep = 'green', -- todo
-			field = vim.g.terminal_color_4, -- member variables
-			func = vim.g.terminal_color_6, -- functions
-			ident = vim.g.terminal_color_13, -- Identifiers (e.g. python constructors)
+			field = '#80b0ff', -- member variables
+			func =  '#A1E6E6', -- functions
+			ident = '#E960CC', -- Identifiers (e.g. python constructors)
 			keyword = 'orange',     -- try, with, except, ...
-			number = vim.g.terminal_color_2,
-			operator = vim.g.terminal_color_7,
-			preproc = vim.g.terminal_color_5, -- #include, import, ...
+			number = '#ccffcc',
+			operator = '#FEFEFE',
+			preproc = '#E940CC', -- #include, import, ...
 			regex = vim.g.terminal_color_9,
 			-- statement = 'green',
-			string = vim.g.terminal_color_2,
-			type = vim.g.terminal_color_11,
+			string = '#33FF66',
+			type = '#F0CF70',
 			variable = '#AAC1FD',
 		}
 	}
@@ -58,7 +85,7 @@ local palettes = {
 	}
 }
 --
-require("nightfox").setup({ options = options, palettes = palettes, groups = groups, specs = specs })
+require("nightfox").setup({ options = options, palettes = palettes, groups = groups, specs = specs_high_contrast })
 vim.cmd("colorscheme nightfox")
 
 -- Set colorscheme before setting up lualine
