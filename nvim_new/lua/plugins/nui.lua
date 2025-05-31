@@ -4,14 +4,14 @@ local Input = require("nui.input")
 local function input_dialog(opts, callback)
 	local prompt = opts.prompt or "Input"
 	prompt = vim.trim(prompt)
-	local current_win = vim.api.nvim_get_current_win()
+	local reee = vim.api.nvim_get_current_win()
 	local popup_options = {
 		relative = "cursor",
 		position = {
 			row = 3,
 			col = 0,
 		},
-		size = 60,
+		size = 100,
 		border = {
 			style = "default",
 			text = {
@@ -33,6 +33,5 @@ local function input_dialog(opts, callback)
 	input:mount()
 end
 vim.ui.input = input_dialog
-vim.ui.input({prompt = 'input', default = "hello"})
 
 

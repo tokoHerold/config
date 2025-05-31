@@ -37,9 +37,9 @@ local plugins = {
 	{ 'nvim-focus/focus.nvim', version = '*' }, -- nice way of splitting windows
 	-- { 'akinsho/toggleterm.nvim' },
 	-- { "nvim-neo-tree/neo-tree.nvim", dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim", "3rd/image.nvim" } }, -- File explorer
-	-- { 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } }, -- Better status line at bottom of screen
+	{ 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } }, -- Better status line at bottom of screen
 	-- {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'}, -- Tab bar of open buffers at top
-	-- {'brenoprata10/nvim-highlight-colors'}, -- render colors in document
+	{'brenoprata10/nvim-highlight-colors'}, -- render colors in document
 	{'s1n7ax/nvim-window-picker', name = 'window-picker' },
 	{"https://github.com/MunifTanjim/nui.nvim"},
 	--
@@ -53,6 +53,11 @@ local plugins = {
 	-- { "mrcjkb/rustaceanvim", version = '^5' }, -- automatically set up lspconfig for rust-analyzer
 	--
 	-- -- Autocompletion
+	{ "neovim/nvim-lspconfig",  lazy = false,
+		dependencies = {{ "ms-jpq/coq_nvim", branch = "coq" }, { "ms-jpq/coq.artifacts", branch = "artifacts" }, { 'ms-jpq/coq.thirdparty', branch = "3p" }},
+  	init = function() vim.g.coq_settings = { auto_start = true} end,
+  	-- init = function() vim.g.coq_settings = { auto_start = "shut-up" } end, -- use this line to disable startup message
+	},
 	-- { "hrsh7th/nvim-cmp", dependencies = {"hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "L3MON4D3/LuaSnip", "rafamadriz/friendly-snippets", "onsails/lspkind.nvim", "hrsh7th/cmp-nvim-lsp"}},
 	--
 	-- -- Helpers
@@ -61,10 +66,7 @@ local plugins = {
 	--   -- { "folke/flash.nvim" },
 	--
 	-- -- Colorscheme
-	-- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-	-- { "EdenEast/nightfox.nvim" },
-	-- { "rebelot/kanagawa.nvim" },
-	-- { 'projekt0n/github-nvim-theme', name = 'github-theme' },
+	{ "EdenEast/nightfox.nvim" },
 }
 
 

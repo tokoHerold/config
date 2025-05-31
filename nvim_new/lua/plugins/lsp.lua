@@ -1,8 +1,34 @@
+local coq = require('coq')
+local M = {}
+
+ --== AUTOSTART ==--
+require("mason-lspconfig").setup {
+    automatic_enable = false, -- need to attach some stuff
+}
+
+-- Attach coq to lsp servers
+local function setup_lsp(server_name)
+    vim.lsp.config(server_name, coq.lsp_ensure_capabilities({}))
+	vim.lsp.enable(server_name)
+end
+
+-- Retrieves all lsp servers installed with mason and calls setup
+local function setup()
+	for _, server in pairs(require('mason-lspconfig').get_installed_servers()) do
+		setup_lsp(server)
+	end
+end
+M.setup = setup
+
+-- Set up LSP servers on startup
+setup()
+
+
+--== STYLE ERRORS/WARNINGS ==--
 vim.diagnostic.config({
 	virtual_lines = true,
 })
 
-local M = {}
 local state = 0
 
 -- Toggles style of diagnostis: virtual line -> virtual text -> none

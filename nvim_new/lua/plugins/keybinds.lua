@@ -15,13 +15,16 @@ set('n', '<leader>fx', builtin.commands, { desc = 'Commands' })
 set('n', '<leader>fr', builtin.registers, { desc = 'Registers' })
 set('n', '<leader>fh', builtin.help_tags, { desc = 'Help tags' })
 set('n', "<leader>fG", "<cmd>Telescope git_files<cr>", { desc = "Git files)" })
-set("n", "<leader>fv", require("telescope").extensions.lazygit.lazygit, { desc = "Version Control" })
+set("n", "<leader>fV", require("telescope").extensions.lazygit.lazygit, { desc = "Version Control" })
 set('n', '<leader>ft', builtin.treesitter, { desc = 'Treesitter' })
 -- Code Mappings
 set('n', '<leader>fd', builtin.lsp_definitions, { desc = 'Definitions' })
 set('n', '<leader>fe', function() builtin.diagnostics({ bufnr = 0 }) end, { desc = 'Errors/Warnings' })
 set('n', '<leader>fi', builtin.lsp_implementations, { desc = 'Implementations' })
 set('n', '<leader>fy', builtin.lsp_type_definitions, { desc = 'Type Definitions' })
+set('n', '<leader>fv', builtin.lsp_references, { desc = 'Variables under cursor' })
+set('n', '<leader>fs', builtin.lsp_document_symbols, { desc = 'Symbols' })
+set('n', '<leader>fS', builtin.lsp_workspace_symbols, { desc = 'All Symbols' })
 -- Special Mappings
 set('n', '<leader>p', builtin.find_files, { desc = 'Find files' })
 set('c', '<C-r>', builtin.command_history, { desc = 'Command history' })
@@ -77,6 +80,7 @@ set({ 'n', 'v' }, "gi", vim.lsp.buf.declaration, { desc = "Goto Implementation" 
 set({ 'n', 'v' }, "<leader>ce", vim.diagnostic.open_float, { desc = "Show Error/Warning" })
 set({ 'n', 'v' }, "<F2>", vim.lsp.buf.rename)
 set('n', "<leader>ct", lspconf.toggle, {desc = "Toggle Diagnostic Style"})
+set('n', "<leader>cr", lspconf.setup, {desc = "Reload LSP"})
 
 -- Focus
 local focus = require("focus")
