@@ -13,9 +13,6 @@ local options = {
 		types = '',
 		variables = '',
 	},
-	modules = {
-		telescope = {enable = true},
-	},
 }
 
 local groups = {
@@ -56,16 +53,16 @@ local specs_high_contrast = {
 		syntax = {
 			bracket = '#FECEFE',
 			builtin0 = '#00DDC0', -- builtin variables
-			builtin1 =  '#FF88CF', -- builtin types
+			builtin1 = '#FF88CF', -- builtin types
 			-- builtin2 = 'green', -- todo
 			comment = '#33AA66',
 			conditional = 'orange', -- if/for
 			const = '#A1E6E6', -- variable names of const type
 			-- dep = 'green', -- todo
 			field = '#80b0ff', -- member variables
-			func =  '#A1E6E6', -- functions
+			func = '#A1E6E6', -- functions
 			ident = '#E960CC', -- Identifiers (e.g. python constructors)
-			keyword = 'orange',     -- try, with, except, ...
+			keyword = 'orange', -- try, with, except, ...
 			number = '#ccffcc',
 			operator = '#FEFEFE',
 			preproc = '#E940CC', -- #include, import, ...

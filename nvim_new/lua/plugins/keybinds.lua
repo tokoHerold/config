@@ -104,4 +104,6 @@ wk.add({"<leader>tm", desc = "Move"})
 set("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true, desc = "Backwards" })
 set("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true, desc = "Forwards" })
 
-
+-- Neotree
+set("n", "<leader>e", "<CMD>Neotree toggle<CR>")
+set("n", "<leader>r", "<CMD>Neotree focus<CR>")

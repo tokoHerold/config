@@ -1,10 +1,10 @@
-wp = require("window-picker")
+local wp = require("window-picker")
 wp.setup({
 	hint = "floating-big-letter",
 })
 
 
-function focus_selected_window()
+local function focus_selected_window()
 	-- Use the window-picker to select a window
 	local selected_window_id = wp.pick_window({
 		prompt_message = 'Jump to window:',
