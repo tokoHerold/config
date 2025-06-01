@@ -39,6 +39,7 @@ local plugins = {
 	-- { "nvim-neo-tree/neo-tree.nvim", dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim", "3rd/image.nvim" } }, -- File explorer
 	{ 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } }, -- Better status line at bottom of screen
 	-- {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'}, -- Tab bar of open buffers at top
+	{   'nanozuki/tabby.nvim' }, -- window line -- window line -- window line -- window line -- window line -- window line -- window line -- window line -- window line
 	{'brenoprata10/nvim-highlight-colors'}, -- render colors in document
 	{'s1n7ax/nvim-window-picker', name = 'window-picker' },
 	{"https://github.com/MunifTanjim/nui.nvim"},

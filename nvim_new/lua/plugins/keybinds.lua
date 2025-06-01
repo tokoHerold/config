@@ -52,9 +52,8 @@ set('n', "<leader>gf", "<cmd>LazyGit<cr>", { desc = "LazyGit (Current file as pr
 set('n', "<leader>gc", "<cmd>LazyGitFilter<cr>", { desc = "Commits" })
 
 -- Treesitter
-wk.add({ "<leader>t", desc = "Treesitter" })
-set('n', "<leader>ti", ":checkhealth nvim-treesitter<cr>)", { desc = "Info" })
-set('n', "<leader>tt", ":InspectTree<cr>)", { desc = "Inspect Tree" })
+set('n', "<leader>cc", ":checkhealth nvim-treesitter<cr>)", { desc = "Treesitter Info" })
+set('n', "<leader>ct", ":InspectTree<cr>)", { desc = "Inspect Tree" })
 wk.add({ "gr", desc = "Incremental Selection" })
 require("nvim-treesitter.configs").setup({
 	incremental_selection = {
@@ -86,6 +85,23 @@ set('n', "<leader>cr", lspconf.setup, {desc = "Reload LSP"})
 local focus = require("focus")
 set('n', "<C-l>", focus.split_nicely, { desc = "Split nicely" })
 set('n', "<leader><left>", function() focus.split_command('h') end, { desc = "Split left" })
+set('n', "<leader>h", function() focus.split_command('h') end, { desc = "Split left" })
 set('n', "<leader><right>", function() focus.split_command('l') end, { desc = "Split right" })
+set('n', "<leader>l", function() focus.split_command('l') end, { desc = "Split right" })
 set('n', "<leader><up>", function() focus.split_command('k') end, { desc = "Split up" })
+set('n', "<leader>k", function() focus.split_command('k') end, { desc = "Split up" })
 set('n', "<leader><down>", function() focus.split_command('j') end, { desc = "Split down" })
+set('n', "<leader>j", function() focus.split_command('j') end, { desc = "Split down" })
+
+-- Tab Line
+wk.add({ "<leader>t", desc = "Tab" })
+set("n", "<leader>ta", ":$tabnew<CR>", { noremap = true, desc = "New"})
+set("n", "<leader>tc", ":tabclose<CR>", { noremap = true, desc = "Close"})
+set("n", "<leader>to", ":tabonly<CR>", { noremap = true, desc = "Close others" })
+set("n", "<leader>tn", ":tabn<CR>", { noremap = true, desc = "Next" })
+set("n", "<leader>tp", ":tabp<CR>", { noremap = true, desc = "Previous"})
+wk.add({"<leader>tm", desc = "Move"})
+set("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true, desc = "Backwards" })
+set("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true, desc = "Forwards" })
+
+

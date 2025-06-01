@@ -32,7 +32,14 @@ map("n", "aa", "A")
 
 -- Buffers
 map("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format" })
--- map("n", "<C-A-Left>", "<C-w><")
--- map("n", "<C-A-Right>", "<C-w>>")
+-- map("n", "<C-A-Left>", function() vim.print("Test") end)
+-- -- map("n", "<C-A-Right>", ">")
+-- map('n', '<C-A-Right>', ':vertical resize +2<CR>')
 -- map("n", "<C-A-Up>", "<C-w>+")
 -- map("n", "<C-A-Down>", "<C-w>-")
+--
+-- Resize window with Control + Alt + Arrow keys
+vim.api.nvim_set_keymap('n', '<C-A-Up>', ':resize +2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-A-Down>', ':resize -2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-A-Left>', ':vertical resize -2<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-A-Right>', ':vertical resize +2<CR>', { noremap = true, silent = true })
