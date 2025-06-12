@@ -39,7 +39,12 @@ map("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format" })
 -- map("n", "<C-A-Down>", "<C-w>-")
 --
 -- Resize window with Control + Alt + Arrow keys
-vim.api.nvim_set_keymap('n', '<C-A-Up>', ':resize +2<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-A-Down>', ':resize -2<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-A-Left>', ':vertical resize -2<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<C-A-Right>', ':vertical resize +2<CR>', { noremap = true, silent = true })
+map('n', '<C-A-Up>', ':resize +2<CR>', { noremap = true, silent = true })
+map('n', '<C-A-Down>', ':resize -2<CR>', { noremap = true, silent = true })
+map('n', '<C-A-Left>', ':vertical resize -2<CR>', { noremap = true, silent = true })
+map('n', '<C-A-Right>', ':vertical resize +2<CR>', { noremap = true, silent = true })
+
+
+-- Terminal Mappings
+map('t', "<esc>", "<C-\\><C-n>")
+

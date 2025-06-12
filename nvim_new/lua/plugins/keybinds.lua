@@ -107,3 +107,8 @@ set("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true, desc = "Forwards" })
 -- Neotree
 set("n", "<leader>e", "<CMD>Neotree toggle<CR>")
 set("n", "<leader>r", "<CMD>Neotree focus<CR>")
+
+-- ToggleTerm
+set('n', "<C-t>", ":ToggleTerm<cr>", { desc = "Terminal" })
+set('t', "<C-t>", function()vim.cmd("ToggleTerm")end, { desc = "Terminal" })
+
