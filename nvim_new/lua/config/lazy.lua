@@ -52,6 +52,7 @@ local plugins = {
 	{ "mason-org/mason.nvim", opts = {} }, -- LSP Package manager
 	{ "mason-org/mason-lspconfig.nvim", opts = {}, dependencies = {"mason-org/mason.nvim", "neovim/nvim-lspconfig"} }, -- LSP
 	{ "neovim/nvim-lspconfig" }, -- LSP
+	{ 'windwp/nvim-autopairs', event = "InsertEnter", config = true },
 	-- { "mrcjkb/rustaceanvim", version = '^5' }, -- automatically set up lspconfig for rust-analyzer
 	--
 	-- -- Autocompletion

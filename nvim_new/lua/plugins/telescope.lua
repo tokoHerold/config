@@ -49,6 +49,16 @@ telescope.setup({
 		command_history = { theme = "ivy" },
 	},
 	extensions = {
+		file_browser = {
+			mappings = {
+				['n'] = {
+					["<cr>"] = "select_default",
+				},
+				['i'] = {
+					["<cr>"] = "select_default",
+				},
+			}
+		},
 		["ui-select"] = {
 			require("telescope.themes").get_cursor(),
 		},
@@ -58,6 +68,7 @@ telescope.setup({
 -- Extension config --
 -- overrides vim.ui.select. See :h vim.ui.select
 telescope.load_extension("ui-select")
+telescope.load_extension("file_browser")
 
 -- Show VCS of all open buffers
 telescope.load_extension("lazygit")
