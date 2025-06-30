@@ -52,6 +52,24 @@ set('n', "<leader>gg", "<cmd>LazyGit<cr>", { desc = "LazyGit (CWD as project roo
 set('n', "<leader>gf", "<cmd>LazyGit<cr>", { desc = "LazyGit (Current file as project root)" })
 set('n', "<leader>gc", "<cmd>LazyGitFilter<cr>", { desc = "Commits" })
 
+-- Gitsigns
+local gitsigns = require("gitsigns")
+-- wk.add("")
+set('n', "<leader>gd", gitsigns.diffthis, { desc = "View diff" })
+set('n', "<leader>gb", gitsigns.blame, { desc = "Blame" })
+set('n', "gb", gitsigns.blame_line, { desc = "Git Blame" })
+wk.add({ "<leader>gh", desc = "Hunk..." })
+set('n', "<leader>ghs", gitsigns.select_hunk, { desc = "Select" })
+set('n', "<leader>ghp", gitsigns.preview_hunk, { desc = "Preview" })
+set('n', "<leader>gh ", gitsigns.stage_hunk, { desc = "Stage" })
+set('n', "<leader>ghr", gitsigns.reset_hunk, { desc = "Reset" })
+set('n', "<leader>gt", gitsigns.toggle_word_diff, { desc = "Toggle Diff" })
+set('n', "[h", function() gitsigns.nav_hunk('prev') end, { desc = "Prev Git Hunk" })
+set('n', "]h", function() gitsigns.nav_hunk('next') end, { desc = "Next Git Hunk" })
+set('n', "[H", function() gitsigns.nav_hunk('prev') end, { desc = "Prev Git Hunk" })
+set('n', "]H", function() gitsigns.nav_hunk('last') end, { desc = "Last Git Hunk" })
+
+
 -- Treesitter
 set('n', "<leader>cc", ":checkhealth nvim-treesitter<cr>)", { desc = "Treesitter Info" })
 set('n', "<leader>ct", ":InspectTree<cr>)", { desc = "Inspect Tree" })
@@ -79,8 +97,8 @@ set({ 'n', 'v' }, "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
 set({ 'n', 'v' }, "gi", vim.lsp.buf.declaration, { desc = "Goto Implementation" })
 set({ 'n', 'v' }, "<leader>ce", vim.diagnostic.open_float, { desc = "Show Error/Warning" })
 set({ 'n', 'v' }, "<F2>", vim.lsp.buf.rename)
-set('n', "<leader>ct", lspconf.toggle, {desc = "Toggle Diagnostic Style"})
-set('n', "<leader>cr", lspconf.setup, {desc = "Reload LSP"})
+set('n', "<leader>ct", lspconf.toggle, { desc = "Toggle Diagnostic Style" })
+set('n', "<leader>cr", lspconf.setup, { desc = "Reload LSP" })
 
 -- Focus
 local focus = require("focus")
@@ -96,12 +114,12 @@ set('n', "<leader>j", function() focus.split_command('j') end, { desc = "Split d
 
 -- Tab Line
 wk.add({ "<leader>t", desc = "Tab" })
-set("n", "<leader>ta", ":$tabnew<CR>", { noremap = true, desc = "New"})
-set("n", "<leader>tc", ":tabclose<CR>", { noremap = true, desc = "Close"})
+set("n", "<leader>ta", ":$tabnew<CR>", { noremap = true, desc = "New" })
+set("n", "<leader>tc", ":tabclose<CR>", { noremap = true, desc = "Close" })
 set("n", "<leader>to", ":tabonly<CR>", { noremap = true, desc = "Close others" })
 set("n", "<leader>tn", ":tabn<CR>", { noremap = true, desc = "Next" })
-set("n", "<leader>tp", ":tabp<CR>", { noremap = true, desc = "Previous"})
-wk.add({"<leader>tm", desc = "Move"})
+set("n", "<leader>tp", ":tabp<CR>", { noremap = true, desc = "Previous" })
+wk.add({ "<leader>tm", desc = "Move" })
 set("n", "<leader>tmp", ":-tabmove<CR>", { noremap = true, desc = "Backwards" })
 set("n", "<leader>tmn", ":+tabmove<CR>", { noremap = true, desc = "Forwards" })
 
@@ -111,5 +129,5 @@ set("n", "<leader>r", "<CMD>Neotree focus<CR>")
 
 -- ToggleTerm
 set('n', "<C-t>", ":ToggleTerm<cr>", { desc = "Terminal" })
-set('t', "<C-t>", function()vim.cmd("ToggleTerm")end, { desc = "Terminal" })
+set('t', "<C-t>", function() vim.cmd("ToggleTerm") end, { desc = "Terminal" })
 

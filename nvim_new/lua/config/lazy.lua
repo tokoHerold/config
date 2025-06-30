@@ -35,19 +35,20 @@ local plugins = {
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" }
 	},
 	{ 'nvim-focus/focus.nvim', version = '*' }, -- nice way of splitting windows
-	{ 'akinsho/toggleterm.nvim', version = "*" },
+	{ 'akinsho/toggleterm.nvim', version = "*" }, -- terminal
 	{ "nvim-neo-tree/neo-tree.nvim", dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim", "3rd/image.nvim" } }, -- File explorer
 	{ 'nvim-lualine/lualine.nvim', dependencies = { 'nvim-tree/nvim-web-devicons' } }, -- Better status line at bottom of screen
 	-- {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons'}, -- Tab bar of open buffers at top
 	{   'nanozuki/tabby.nvim' }, -- window line -- window line -- window line -- window line -- window line -- window line -- window line -- window line -- window line
-	{'brenoprata10/nvim-highlight-colors'}, -- render colors in document
-	{'s1n7ax/nvim-window-picker', name = 'window-picker' },
-	{"https://github.com/MunifTanjim/nui.nvim"},
-	{ "https://github.com/lewis6991/gitsigns.nvim" },
+	{ 'brenoprata10/nvim-highlight-colors' }, -- render colors in document
+	{ 's1n7ax/nvim-window-picker', name = 'window-picker'  },
+	{ "https://github.com/MunifTanjim/nui.nvim" },
+	{  "https://github.com/lewis6991/gitsigns.nvim"  },
 
 	-- -- Coding
 	-- { 'nvim-treesitter/nvim-treesitter'}, -- Highlight, edit, and navigate code
-	{"nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate"},
+	{ "nvim-treesitter/nvim-treesitter", branch = 'master', lazy = false, build = ":TSUpdate" },
+	{ "nvim-treesitter/nvim-treesitter-textobjects", dependencies = { "nvim-treesitter/nvim-treesitter" } },
 	-- { 'nvim-treesitter/nvim-treesitter-textobjects' }, -- Better movement, peaking
 	{ "mason-org/mason.nvim", opts = {} }, -- LSP Package manager
 	{ "mason-org/mason-lspconfig.nvim", opts = {}, dependencies = {"mason-org/mason.nvim", "neovim/nvim-lspconfig"} }, -- LSP
@@ -57,14 +58,14 @@ local plugins = {
 	--
 	-- -- Autocompletion
 	{ "neovim/nvim-lspconfig",  lazy = false,
-		dependencies = {{ "ms-jpq/coq_nvim", branch = "coq" }, { "ms-jpq/coq.artifacts", branch = "artifacts" }, { 'ms-jpq/coq.thirdparty', branch = "3p" }},
-  	init = function() vim.g.coq_settings = { auto_start = true} end,
-  	-- init = function() vim.g.coq_settings = { auto_start = "shut-up" } end, -- use this line to disable startup message
+		dependencies = {{  "ms-jpq/coq_nvim", branch = "coq" }, { "ms-jpq/coq.artifacts", branch = "artifacts" }, { 'ms-jpq/coq.thirdparty', branch = "3p" }},
+		-- init = function() vim.g.coq_settings = { auto_start = true} end,
+		init = function() vim.g.coq_settings = { auto_start = "shut-up" } end, -- use this line to disable startup message
 	},
 	-- { "hrsh7th/nvim-cmp", dependencies = {"hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "L3MON4D3/LuaSnip", "rafamadriz/friendly-snippets", "onsails/lspkind.nvim", "hrsh7th/cmp-nvim-lsp"}},
 	--
 	-- -- Helpers
-	"folke/which-key.nvim", -- Shows possible key combinations 
+	{ "folke/which-key.nvim" }, -- Shows possible key combinations 
 	{ "doctorfree/cheatsheet.nvim", event = "VeryLazy", dependencies = { { "nvim-telescope/telescope.nvim" }, { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } } },
 	--   -- { "folke/flash.nvim" },
 	--
