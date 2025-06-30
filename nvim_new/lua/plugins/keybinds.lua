@@ -85,6 +85,40 @@ require("nvim-treesitter.configs").setup({
 		}
 	}
 })
+-- Treesitter textobjects
+local to = require('plugins.treesitter')
+-- Args: keybind, capture, desc
+to.add_selection("af", "@function.outer", "Outer function")
+to.add_selection("if", "@function.inner", "Inner function")
+to.add_selection("ad", "@assignment.outer", "Outer assignment")
+to.add_selection("id", "@assignment.inner", "Inner assignment")
+to.add_selection("ac", "@class.outer", "Outer class")
+to.add_selection("ia", "@parameter.inner", "Inner argument")
+to.add_selection("aa", "@parameter.outer", "Outer argument")
+to.add_selection("im", "@attribute.inner", "Inner member")
+to.add_selection("am", "@attribute.outer", "Outer member")
+to.add_selection("ii", "@conditional.inner", "Inner if")
+to.add_selection("ai", "@conditional.outer", "Outer if")
+to.add_selection("il", "@loop.inner", "Inner loop")
+to.add_selection("al", "@loop.outer", "Outer loop")
+to.add_selection("i#", "@comment.inner", "Inner comment")
+to.add_selection("a#", "@comment.outer", "Outer comment")
+-- Args: capture, desc, next start, next end, prev start, prev end, next, prev
+to.add_movement("@function.outer", "function", "]f", "]F", "[f", "[F", "]e", "[e")
+to.add_movement("@parameter.inner", "argument", "]a", "]A", "[a", "[A")
+to.add_movement("@assignment.outer", "assignment", "]d", "]D", "[d", "[D")
+to.add_movement("@class.outer", "class", "]c", "]C", "[c", "[C")
+to.add_movement("@conditional.outer", "if", "]i", "]I", "[i", "[I")
+to.add_movement("@loop.outer", "loop", "]l", "]L", "[l", "[L")
+to.setup()
+local ts_repeat_move = require "nvim-treesitter.textobjects.repeatable_move"
+-- Repeat movement with ; and ,
+vim.keymap.set({ "n", "x", "o" }, ";", ts_repeat_move.repeat_last_move_next)
+vim.keymap.set({ "n", "x", "o" }, ",", ts_repeat_move.repeat_last_move_previous)
+vim.keymap.set({ "n", "x", "o" }, "f", ts_repeat_move.builtin_f_expr, { expr = true })
+vim.keymap.set({ "n", "x", "o" }, "F", ts_repeat_move.builtin_F_expr, { expr = true })
+vim.keymap.set({ "n", "x", "o" }, "t", ts_repeat_move.builtin_t_expr, { expr = true })
+vim.keymap.set({ "n", "x", "o" }, "T", ts_repeat_move.builtin_T_expr, { expr = true })
 
 -- LSP
 local lspconf = require("plugins/lsp")
