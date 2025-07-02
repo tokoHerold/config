@@ -63,7 +63,8 @@ local plugins = {
 		init = function() vim.g.coq_settings = { auto_start = "shut-up" } end, -- use this line to disable startup message
 	},
 	-- { "hrsh7th/nvim-cmp", dependencies = {"hrsh7th/cmp-buffer", "hrsh7th/cmp-path", "L3MON4D3/LuaSnip", "rafamadriz/friendly-snippets", "onsails/lspkind.nvim", "hrsh7th/cmp-nvim-lsp"}},
-	--
+	{ "Vigemus/iron.nvim" },
+
 	-- -- Helpers
 	{ "folke/which-key.nvim" }, -- Shows possible key combinations 
 	{ "doctorfree/cheatsheet.nvim", event = "VeryLazy", dependencies = { { "nvim-telescope/telescope.nvim" }, { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } } },
