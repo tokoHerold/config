@@ -1,15 +1,21 @@
 local remap = vim.api.nvim_set_keymap
-local npairs = require('nvim-autopairs')
 
+-- Setup autopairs
+local npairs = require('nvim-autopairs')
 npairs.setup({ map_bs = false, map_cr = false })
 
+-- Setup suround
+require("nvim-surround").setup({})
+
+-- Setup completion
 vim.g.coq_settings = { keymap = { recommended = false } }
 
 -- these mappings are coq recommended mappings unrelated to nvim-autopairs
 remap('i', '<esc>', [[pumvisible() ? "<c-e><esc>" : "<esc>"]], { expr = true, noremap = true })
 remap('i', '<c-c>', [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]], { expr = true, noremap = true })
-remap('i', '<tab>', [[pumvisible() ? "<c-n>" : "<tab>"]], { expr = true, noremap = true })
-remap('i', '<s-tab>', [[pumvisible() ? "<c-p>" : "<bs>"]], { expr = true, noremap = true })
+remap('i', '<s-j>', [[pumvisible() ? "<c-n>" : "<c-j>"]], { expr = true, noremap = true })
+remap('i', '<s-k>', [[pumvisible() ? "<c-p>" : "<s-k>"]], { expr = true, noremap = true })
+remap('i', '<tab>', [[pumvisible() ? "<c-y>" : "<tab>"]], { expr = true, noremap = true })
 
 -- skip it, if you use another global object
 _G.MUtils = {}
