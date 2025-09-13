@@ -58,7 +58,7 @@ telescope.setup({
 			mappings = special_mapping,
 
 		},
-		buffers = { mappings = special_mapping },
+		-- buffers = { mappings = special_mapping },
 		command_history = { theme = "ivy" },
 	},
 	extensions = {

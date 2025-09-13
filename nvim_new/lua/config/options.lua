@@ -27,6 +27,17 @@ o.termguicolors = true
 -- o.paste = true
 o.formatoptions:remove('r') -- dont automatically add comments when hitting enter
 
+-- Use spaces instead of tabs for the following file types:
+local space_filetypes = { "none" }
+vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = space_filetypes,
+    callback = function()
+        vim.opt_local.expandtab = true  -- Use spaces instead of tabs
+        vim.opt_local.shiftwidth = 4     -- Number of spaces for each indentation level
+        vim.opt_local.tabstop = 4         -- Number of spaces that a <Tab> counts for
+    end,
+})
+
 -- Automatically highlight text when yanking
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('highlight_yank', {}),
