@@ -55,6 +55,7 @@ local plugins = {
 	{ "neovim/nvim-lspconfig" }, -- LSP
 	{ 'windwp/nvim-autopairs', event = "InsertEnter", config = true },
 	-- { "mrcjkb/rustaceanvim", version = '^5' }, -- automatically set up lspconfig for rust-analyzer
+	{ "kylechui/nvim-surround", version = "^3.0.0", event = "VeryLazy" },
 	--
 	-- -- Autocompletion
 	{ "neovim/nvim-lspconfig",  lazy = false,
