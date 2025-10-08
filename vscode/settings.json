@@ -1,0 +1,143 @@
+{
+    "files.autoSave": "onFocusChange",
+    "editor.mouseWheelZoom": true,
+    "python.venvFolders": [
+        ".python"
+    ],
+    "terminal.integrated.profiles.linux": {
+
+        "bash": {
+            "path": "bash",
+            "icon": "terminal-bash"
+        },
+        "zsh": {
+            "path": "zsh"
+        },
+        "fish": {
+            "path": "fish"
+        },
+        "tmux": {
+            "path": "tmux",
+            "icon": "terminal-tmux"
+        },
+        "pwsh": {
+            "path": "pwsh",
+            "icon": "terminal-powershell"
+        }
+    },
+    "python.terminal.launchArgs": [
+        
+    ],
+    "git.openRepositoryInParentFolders": "always",
+    "vim.enableNeovim": true,
+    "vim.insertModeKeyBindings": [
+        {     
+         "before": ["j", "k"],
+         "after": ["<esc>"]
+        }, {     
+         "before": ["k", "j"],
+         "after": ["<esc>"]
+        }
+    ],
+    "vim.normalModeKeyBindings": [
+        {
+         "before": ["a", "a"],
+         "after": ["A"]
+        },
+        {
+            "before": ["<space>", "c", "a"],
+            "commands": ["editor.action.quickFix"]
+        },
+        {
+            "before": ["K"],
+            "commands": ["editor.action.showHover"]
+        },
+        {
+            "before": ["<space>", "p"],
+            "commands": ["workbench.action.quickOpen"]
+        },
+        {
+            "before": ["<space>", "<space>"],
+            "commands": ["workbench.action.navigateEditorGroups"]
+        },
+        {
+            "before": ["<space>", "r"],
+            "commands": ["workbench.view.explorer"]
+        },
+        // {
+        // "before": ["J"],
+        // "commands": ["selectPrevCodeAction"],
+        // // "when": "codeActionMenuVisible"
+        // },
+        // {
+        // "before": ["K"],
+        // "commands": ["selectNextCodeAction"],
+        // // "when": "codeActionMenuVisible"
+        // }, // Navigation
+        {
+        // Go to previous method with [m
+        "before": ["[", "m"],
+        "commands": ["editor.action.previousMethodOrAttributeKeys"]
+        },
+        {
+        // Go to next method with ]m
+        "before": ["]", "m"],
+        "commands": ["editor.action.nextMethodOrAttributeKeys"]
+        },
+        {
+        // Go to next problem/error with ]d
+        "before": ["]", "d"],
+        "commands": ["editor.action.marker.next"]
+        },
+        {
+        // Go to previous problem/error with [d
+        "before": ["[", "d"],
+        "commands": ["editor.action.marker.prev"]
+        },
+    ],
+    "vim.handleKeys": {
+        "<C-d>": true,
+        "<C-s>": false,
+        "<C-a>": false,
+        "<C-z>": false,
+        "<C-p>": false,
+        "<C-c>": false,
+    },
+    "vim.leader": " ",
+    "vim.sneakReplacesF": true,
+    "vim.sneak": true,
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+         "before": ["k"],
+         "after": ["g", "k"]
+        },
+        {
+         "before": ["j"],
+         "after": ["g", "j"]
+        }, 
+    ],
+    "vim.highlightedyank.enable": true,
+
+
+    // LaTeX
+    "latex-workshop.intellisense.citation.backend": "biblatex",
+    "telemetry.feedback.enabled": false,
+    "editor.renderWhitespace": "all",
+    "terminal.integrated.inheritEnv": false,
+    "jupyter.jupyterCommandLineArguments": [
+        
+    ],
+    "python.condaPath": "/bin/conda",
+    "jupyter.disableJupyterAutoStart": true,
+    "jupyter.excludeUserSitePackages": true,
+    "jupyter.experiments.optOutFrom": [
+
+    ],
+    "notebook.lineNumbers": "on",
+    "jupyter.kernels.trusted": [
+        "/home/thomas/.conda/envs/random-forest/bin/jupyter"
+    ],
+    "jupyter.logKernelOutputSeparately": true,
+    "ipynb.experimental.serialization": false,
+
+}
