@@ -56,7 +56,9 @@ local plugins = {
 	{ 'windwp/nvim-autopairs', event = "InsertEnter", config = true },
 	-- { "mrcjkb/rustaceanvim", version = '^5' }, -- automatically set up lspconfig for rust-analyzer
 	{ "kylechui/nvim-surround", version = "^3.0.0", event = "VeryLazy" },
-	--
+	{ "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }, -- DAP
+	{ "mfussenegger/nvim-dap-python" }, -- Python DAP config
+
 	-- -- Autocompletion
 	{ "neovim/nvim-lspconfig",  lazy = false,
 		dependencies = {{  "ms-jpq/coq_nvim", branch = "coq" }, { "ms-jpq/coq.artifacts", branch = "artifacts" }, { 'ms-jpq/coq.thirdparty', branch = "3p" }},
