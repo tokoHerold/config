@@ -102,6 +102,7 @@
         "<C-z>": false,
         "<C-p>": false,
         "<C-c>": false,
+        "<C-f>": false,
     },
     "vim.leader": " ",
     "vim.sneakReplacesF": true,
