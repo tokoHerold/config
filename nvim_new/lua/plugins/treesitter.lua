@@ -10,6 +10,15 @@ local move_prev_start = {}
 local move_prev_end   = {}
 local move_next       = {}
 local move_prev       = {}
+local lsp_interop     = {
+				enable = true,
+				border = 'none',
+				floating_preview_opts = {},
+				-- peek_definition_code = {
+				-- 	["<leader>df"] = "@function.outer",
+				-- 	["<leader>dF"] = "@class.outer",
+				-- },
+			}
 
 M.add_selection       = function(keybind, capture_group, description, selection_mode)
 	keymaps[keybind] = { query = capture_group, desc = description }
@@ -28,6 +37,15 @@ M.add_movement        = function(capture, desc, next_start, next_end, prev_start
 	end
 	if prev then
 		move_prev[prev] = { query = capture, desc = "Prev " .. desc .. " start/end" }
+	end
+end
+
+M.add_lsp_bind = function(capture, option, keybind)
+	local op = lsp_interop[option]
+	if op then
+		op[keybind] = capture
+	else
+		lsp_interop[option] = {[keybind] = capture}
 	end
 end
 
@@ -57,7 +75,8 @@ M.setup               = function()
 				goto_previous_end = move_prev_end,
 				goto_next = move_next,
 				goto_previous = move_prev,
-			}
+			},
+			lsp_interop = lsp_interop,
 		}
 	})
 end
