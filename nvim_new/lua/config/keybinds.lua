@@ -58,4 +58,4 @@ map('n', '<C-A-Right>', ':vertical resize +2<CR>', { noremap = true, silent = tr
 
 
 -- Terminal Mappings
-map('t', "<esc>", "<C-\\><C-n>")
+map('t', "<esc><esc>", "<C-\\><C-n>")
