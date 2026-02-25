@@ -11,33 +11,18 @@ require("nvim-surround").setup({})
 vim.g.coq_settings = { keymap = { recommended = false } }
 
 -- these mappings are coq recommended mappings unrelated to nvim-autopairs
-remap('i', '<esc>', [[pumvisible() ? "<c-e><esc>" : "<esc>"]], { expr = true, noremap = true })
+remap('i', '<cr>',
+	[[pumvisible() ? (complete_info().selected == -1 ?]] ..
+	[["<c-e><cr>" :]] .. -- Selection shown but nothing selected
+	[["<c-y>") :]] ..     -- Selection shown and something selected
+	[["<cr>"]],          -- Selection hidden
+	{ expr = true, noremap = true })
+remap('i', '<tab>',
+	[[pumvisible() ? (complete_info().selected == -1 ?]] ..
+	[["<c-e><tab>" :]] .. -- Selection shown but nothing selected
+	[["<c-y>") :]] ..     -- Selection shown and something selected
+	[["<tab>"]],          -- Selection hidden
+	{ expr = true, noremap = true })
 remap('i', '<c-c>', [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]], { expr = true, noremap = true })
 remap('i', '<s-j>', [[pumvisible() ? "<c-n>" : "<c-j>"]], { expr = true, noremap = true })
 remap('i', '<s-k>', [[pumvisible() ? "<c-p>" : "<s-k>"]], { expr = true, noremap = true })
-remap('i', '<tab>', [[pumvisible() ? "<c-y>" : "<tab>"]], { expr = true, noremap = true })
-
--- skip it, if you use another global object
-_G.MUtils = {}
-
-MUtils.CR = function()
-	if vim.fn.pumvisible() ~= 0 then
-		if vim.fn.complete_info({ 'selected' }).selected ~= -1 then
-			return npairs.esc('<c-y>')
-		else
-			return npairs.esc('<c-e>') .. npairs.autopairs_cr()
-		end
-	else
-		return npairs.autopairs_cr()
-	end
-end
-remap('i', '<cr>', 'v:lua.MUtils.CR()', { expr = true, noremap = true })
-
-MUtils.BS = function()
-	if vim.fn.pumvisible() ~= 0 and vim.fn.complete_info({ 'mode' }).mode == 'eval' then
-		return npairs.esc('<c-e>') .. npairs.autopairs_bs()
-	else
-		return npairs.autopairs_bs()
-	end
-end
-remap('i', '<bs>', 'v:lua.MUtils.BS()', { expr = true, noremap = true })
