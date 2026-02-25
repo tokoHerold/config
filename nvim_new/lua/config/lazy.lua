@@ -72,6 +72,7 @@ local plugins = {
 	{ "folke/which-key.nvim" }, -- Shows possible key combinations 
 	{ "doctorfree/cheatsheet.nvim", event = "VeryLazy", dependencies = { { "nvim-telescope/telescope.nvim" }, { "nvim-lua/popup.nvim" }, { "nvim-lua/plenary.nvim" } } },
 	--   -- { "folke/flash.nvim" },
+	{ "ggandor/leap.nvim" }, -- replace s with vim-sneak behaviour
 	--
 	-- -- Colorscheme
 	{ "EdenEast/nightfox.nvim" },

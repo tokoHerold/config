@@ -14,7 +14,7 @@ iron.setup {
 				command = { "fish" }
 			},
 			python = {
-				command = { "python3" }, -- or { "ipython", "--no-autoindent" }
+				command = { "python3", "-i" }, -- or { "ipython", "--no-autoindent" }
 				format = common.bracketed_paste_python,
 				block_dividers = { "# %%", "#%%" },
 			}

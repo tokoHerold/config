@@ -15,6 +15,7 @@ end
 -- Better movement
 map("n", "j", "gj")
 map("n", "k", "gk")
+map("n", "Y", "y$") -- copy until end - line copy is already 'yy'
 
 -- Better escaping
 map({ "i" }, "jk", "<esc>")
@@ -56,6 +57,16 @@ map('n', '<C-A-Down>', ':resize -2<CR>', { noremap = true, silent = true })
 map('n', '<C-A-Left>', ':vertical resize -2<CR>', { noremap = true, silent = true })
 map('n', '<C-A-Right>', ':vertical resize +2<CR>', { noremap = true, silent = true })
 
+-- Toggle Tabs and Spaces indent mode
+local function toggle()
+	local expandtab = vim.api.nvim_buf_get_option(0, 'expandtab')
+	vim.api.nvim_buf_set_option(0, 'expandtab', not vim.api.nvim_buf_get_option(0, 'expandtab'))
+end
+map('n', '<Leader>ci', toggle, { desc = 'Toggle Indent' })
+
+
+
 
 -- Terminal Mappings
 map('t', "<esc><esc>", "<C-\\><C-n>")
+map('t', "<c-w>", function () vim.api.nvim_command('wincmd w') end)

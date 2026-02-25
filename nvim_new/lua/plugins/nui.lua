@@ -1,10 +1,11 @@
 local Input = require("nui.input")
 
+local M = {}
+
 -- Override ui.input
 local function input_dialog(opts, callback)
 	local prompt = opts.prompt or "Input"
 	prompt = vim.trim(prompt)
-	local reee = vim.api.nvim_get_current_win()
 	local popup_options = {
 		relative = "cursor",
 		position = {
@@ -30,8 +31,12 @@ local function input_dialog(opts, callback)
 		on_submit = callback
 	})
 	input:map("n", "<Esc>", function() input:unmount() end, { noremap = true })
+	input:map("n", "q", function() input:unmount() end, { noremap = true })
 	input:mount()
 end
 vim.ui.input = input_dialog
+
+M.input_dialog = input_dialog;
+return M;
 
 
