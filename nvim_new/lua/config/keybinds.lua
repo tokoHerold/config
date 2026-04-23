@@ -16,6 +16,8 @@ end
 map("n", "j", "gj")
 map("n", "k", "gk")
 map("n", "Y", "y$") -- copy until end - line copy is already 'yy'
+map({ "n", "v" }, "L", "$") -- Use L instead of $
+map({ "n", "v" }, "H", "^") -- Use H instead of ^
 
 -- Better escaping
 map({ "i" }, "jk", "<esc>")
@@ -34,7 +36,7 @@ map("n", "<A-up>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "Mo
 map("i", "<A-down>", "<esc><cmd>m .+1<cr>==gi", { desc = "Move Down" })
 map("i", "<A-up>", "<esc><cmd>m .-2<cr>==gi", { desc = "Move Up" })
 
--- Neat shortcut
+-- Neat shortcuts
 map({ "i", "x", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>", { desc = "Save File" })
 map("n", "<C-a>", "ggVG", { desc = "Select all" })
 map("v", "<C-c>", "\"+y", { desc = "Copy" })
