@@ -232,3 +232,7 @@ set({'n', 'x', 'o'}, 's', '<Plug>(leap-forward)')
 set({'n', 'x', 'o'}, 'S', '<Plug>(leap-backward)')
 set({'n', 'x', 'o'}, '<a-s>', '<Plug>(leap)')
 set('n',             'gs', '<Plug>(leap-from-window)')
+
+-- Doxygen stub
+local doxygen_stub = require("plugins.doxygen_generator")
+set('n', "<leader>cd", doxygen_stub.InsertDoxygenStub, {desc = "Insert Doxygen Stub"})
