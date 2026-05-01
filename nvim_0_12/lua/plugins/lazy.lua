@@ -32,6 +32,11 @@ local plugins = {
 		init = function() vim.g.no_plugin_maps = true end,
 	},
 
+	-- LSP Package Manager & enabler
+	{ "mason-org/mason-lspconfig.nvim", opts = {},
+		dependencies = { { "mason-org/mason.nvim", opts = {} }, "neovim/nvim-lspconfig", },
+	},
+
 	-- File browser to the left side of editor
 	{ "nvim-neo-tree/neo-tree.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim", "3rd/image.nvim" }

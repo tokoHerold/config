@@ -21,7 +21,7 @@ map_select("d", "@assignment", "Assignment")
 map_select("q", "@comment", "Comment")
 
 -- Swapping
-local ts_swap = require("nvim-treesitter-textobjects.swap") 
+local ts_swap = require("nvim-treesitter-textobjects.swap")
 vim.keymap.set("n", "}a", function() ts_swap.swap_next "@parameter.inner" end, { desc = "Argument" })
 vim.keymap.set("n", "{a", function() ts_swap.swap_previous "@parameter.inner" end, { desc = "Argument" })
 

@@ -15,7 +15,7 @@ end
 -- Better movement
 map("n", "j", "gj")
 map("n", "k", "gk")
-map("n", "Y", "y$") -- copy until end - line copy is already 'yy'
+map("n", "Y", "y$")         -- copy until end - line copy is already 'yy'
 map({ "n", "v" }, "L", "$") -- Use L instead of $
 map({ "n", "v" }, "H", "^") -- Use H instead of ^
 
@@ -49,12 +49,27 @@ map("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format" })           -- Use
 map({ "i", "n" }, "<A-l>", format_document, { desc = "Format document" }) -- Use internal filter formatting
 
 -- Toggle Tabs and Spaces indent mode
-local function toggle()
-	local expandtab = vim.api.nvim_buf_get_option(0, 'expandtab')
+local function toggle_indent()
 	vim.api.nvim_buf_set_option(0, 'expandtab', not vim.api.nvim_buf_get_option(0, 'expandtab'))
 end
-map('n', '<Leader>ci', toggle, { desc = 'Toggle Indent' })
+map('n', '<Leader>ci', toggle_indent, { desc = 'Toggle Indent' })
 
 -- Terminal Mappings
 map('t', "<esc><esc>", "<C-\\><C-n>")
-map('t', "<c-w>", function () vim.api.nvim_command('wincmd w') end)
+map('t', "<c-w>", function() vim.api.nvim_command('wincmd w') end)
+
+-- LSP options
+local state = 0
+local function toggle_diagnostics()
+	state = (state + 1) % 3
+	vim.diagnostic.config({
+		virtual_text  = state == 1,
+		virtual_lines = state == 0,
+	})
+end
+map({ 'n', 'v' }, "<leader>ca", vim.lsp.buf.code_action, { desc = "Actions" })
+map({ 'n', 'v' }, "gd", vim.lsp.buf.definition, { desc = "Goto Definition" })
+map({ 'n', 'v' }, "gi", vim.lsp.buf.declaration, { desc = "Goto Implementation" })
+map({ 'n', 'v' }, "<leader>ce", vim.diagnostic.open_float, { desc = "Show Error/Warning" })
+map({ 'n', 'v' }, "<F2>", vim.lsp.buf.rename)
+map('n', "<leader>ct", toggle_diagnostics, { desc = "Toggle Diagnostic Style" })

@@ -27,6 +27,9 @@ o.termguicolors = true
 -- o.paste = true
 o.formatoptions:remove('r') -- dont automatically add comments when hitting enter
 
+-- Style LSP errors/warnings
+vim.diagnostic.config({ virtual_lines = true, })
+
 -- Use spaces instead of tabs for the following file types:
 local space_filetypes = { "none" }
 vim.api.nvim_create_autocmd("BufEnter", {
