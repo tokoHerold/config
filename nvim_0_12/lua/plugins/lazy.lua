@@ -27,6 +27,11 @@ local plugins = {
 	-- Installer for TreeSitter configs -- ! archived !
 	{ 'nvim-treesitter/nvim-treesitter', lazy = false, build = ':TSUpdate' },
 
+	-- Interaction with Treesitter Textobjects
+	{ "nvim-treesitter/nvim-treesitter-textobjects", branch = "main",
+		init = function() vim.g.no_plugin_maps = true end,
+	},
+
 	-- File browser to the left side of editor
 	{ "nvim-neo-tree/neo-tree.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim", "3rd/image.nvim" }
