@@ -87,8 +87,12 @@ local plugins = {
 			{ "ms-jpq/coq.artifacts", branch = "artifacts" },
 			{ 'ms-jpq/coq.thirdparty', branch = "3p" }
 		},
-		init = function() vim.g.coq_settings = { auto_start = true, } end,
-	}
+		init = function() vim.g.coq_settings = { auto_start = "shut-up", } end,
+	},
+
+	-- Debug UI
+	{ "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio", "mfussenegger/nvim-dap-python" } },
+
 }
 
 -- Load Plugins
