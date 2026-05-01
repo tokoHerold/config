@@ -42,6 +42,13 @@ local plugins = {
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim", "3rd/image.nvim" }
 	},
 
+	-- Bracket sourrounding
+	{ "kylechui/nvim-surround", event = "VeryLazy" },
+	{ 'windwp/nvim-autopairs', event = "InsertEnter", config = true },
+
+	-- Leap
+	{ url = "https://codeberg.org/andyg/leap.nvim" },
+
 	-- Floating terminal
 	{ 'akinsho/toggleterm.nvim', version = "*" },
 
