@@ -3,7 +3,7 @@ local wk = require("which-key")
 
 local dap = require('dap')
 local dapui = require('dapui')
-local nui = require('plugins.config.nui')
+local nui = require('plugins.util.nui')
 local function step_and_center(func)
 	local ok, _ = pcall(func)
 	if ok then
