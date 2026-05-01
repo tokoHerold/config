@@ -51,6 +51,9 @@ local plugins = {
 		dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" }
 	},
 
+	-- Inline Git Signs
+	{  "https://github.com/lewis6991/gitsigns.nvim"  },
+
 	-- Shows key suggestions
 	{ "folke/which-key.nvim" },
 
