@@ -1,0 +1,13 @@
+{
+	"KPlugin": {
+		"Name": "ManualTiler",
+		"Description": "Tile halves/corners and expand windows to screen edges.",
+		"Id": "kwin-script-custom-tiling",
+		"Version": "1.0",
+		"License": "MIT",
+		"Category": "Window Management"
+	},
+	"X-Plasma-API": "javascript",
+	"X-Plasma-MainScript": "code/main.js",
+	"KPackageStructure": "KWin/Script"
+}
