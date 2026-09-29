@@ -41,6 +41,21 @@ vim.api.nvim_create_autocmd("BufEnter", {
     end,
 })
 
+-- Enable treesitter for buffers if they exist
+vim.api.nvim_create_autocmd("BufEnter", { -- TODO: find better event
+  callback = function(args)
+    local bufnr = args.buf
+    local ft = vim.bo[bufnr].filetype
+    if ft == "" then return end
+    -- try language from filetype (maps like 'c++' -> 'cpp' are handled by runtime)
+    local ok = vim.treesitter.language.add(ft) -- returns true if parser found/loaded
+    if not ok then return end
+    -- start treesitter for this buffer with that language
+    pcall(vim.treesitter.start, bufnr, ft)
+  end,
+})
+
+
 -- Automatically highlight text when yanking
 vim.api.nvim_create_autocmd('TextYankPost', {
   group = vim.api.nvim_create_augroup('highlight_yank', {}),

@@ -19,6 +19,8 @@ map_select("a", "@parameter", "Argument")
 map_select("m", "@attribute", "Member")
 map_select("d", "@assignment", "Assignment")
 map_select("q", "@comment", "Comment")
+set({ "x", "o" }, "ir", function() ts_select.select_textobject("@assignment.rhs", "textobjects") end, { desc = "RHS" })
+set({ "x", "o" }, "il", function() ts_select.select_textobject("@assignment.lhs", "textobjects") end, { desc = "LHS" })
 
 -- Swapping
 local ts_swap = require("nvim-treesitter-textobjects.swap")

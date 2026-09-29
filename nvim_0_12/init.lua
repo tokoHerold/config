@@ -1,4 +1,4 @@
---vim.treesitter.start()
+-- vim.treesitter.start()
 -- Load vim options
 require("config.options")
 
@@ -31,3 +31,6 @@ for _, file in ipairs(vim.fn.readdir(plugin_keybinds)) do
 		end
 	end
 end
+
+-- Fix Treesitter highlighting
+require("config.colorscheme_fixer")
